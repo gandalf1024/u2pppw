@@ -4,9 +4,8 @@ import (
 	"fmt"
 
 	"time"
-
-	"imooc.com/ccmouse/learngo/retriever/mock"
-	"imooc.com/ccmouse/learngo/retriever/real"
+	"u2pppw/retriever/real"
+	"u2pppw/retriever/mock"
 )
 
 type Retriever interface {
@@ -48,7 +47,10 @@ func main() {
 	var r Retriever
 
 	mockRetriever := mock.Retriever{
-		Contents: "this is a fake imooc.com"}
+		Contents: "this is a fake imooc.com",
+	}
+
+	//mock.Retriever 实现了 Get接口
 	r = &mockRetriever
 	inspect(r)
 
@@ -71,7 +73,7 @@ func main() {
 }
 
 func inspect(r Retriever) {
-	fmt.Println("Inspecting", r)
+	fmt.Println("Inspecting2", r)
 	fmt.Printf(" > Type:%T Value:%v\n", r, r)
 	fmt.Print(" > Type switch: ")
 	switch v := r.(type) {
